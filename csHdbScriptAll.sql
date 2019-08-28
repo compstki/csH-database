@@ -1,3 +1,7 @@
+ALTER SESSION SET NLS_DATE_FORMAT='DD-MON-YYYY HH24:MI:SS';
+
+DROP TABLE FLIGHT;
+
 CREATE TABLE FLIGHT(
    flightID      VARCHAR2(5) NOT NULL PRIMARY KEY
   ,departureDate DATE  NOT NULL
@@ -219,6 +223,8 @@ INSERT INTO BOOKING(bookingNo,adultTicket,childTicket,concessionTicket,customerI
 INSERT INTO BOOKING(bookingNo,adultTicket,childTicket,concessionTicket,customerID,flightID) VALUES (109421,5,0,0,'GR01940','KL989');
 INSERT INTO BOOKING(bookingNo,adultTicket,childTicket,concessionTicket,customerID,flightID) VALUES (109422,2,0,0,'GR01967','DB191');
 
+DROP TABLE CUSTOMER;
+
 CREATE TABLE CUSTOMER(
    customerID VARCHAR2(7) NOT NULL PRIMARY KEY
   ,forename   VARCHAR2(20) NOT NULL
@@ -278,34 +284,35 @@ INSERT INTO CUSTOMER(customerID,forename,surname,street,town,postcode) VALUES ('
 INSERT INTO CUSTOMER(customerID,forename,surname,street,town,postcode) VALUES ('GR01975','Louise','Dunn','7 Strachur Street','Kent','CT16 8NB');
 INSERT INTO CUSTOMER(customerID,forename,surname,street,town,postcode) VALUES ('GR01976','Julianna','Sousa','56 Sandy Road','Liverpool','L1 9UJ');
 
-CREATE TABLE ROUTE(
+DROP TABLE F_ROUTE;
+
+CREATE TABLE F_ROUTE(
    routeID    INTEGER  NOT NULL PRIMARY KEY 
   ,departFrom VARCHAR2(3) NOT NULL
   ,arriveAt   VARCHAR2(3) NOT NULL
   ,midStopOne VARCHAR2(3)
   ,midStopTwo VARCHAR2(3)
 );
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (1279,'GLA','IBZ','BRU',NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (1329,'MMX','LHR',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (1902,'VNO','EDI','BER','LHR');
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (1924,'SAW','LHR',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (2716,'NAP','MAN',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (2847,'LPL','ARN','AMS',NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (3187,'ATH','EDI',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (3651,'MAN','FRA',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (3976,'STN','CHQ','VIE',NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (4153,'BFS','BCN',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (4551,'LGW','LAX','JFK','DEN');
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (4871,'STN','MUC',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (5172,'BHX','FCO',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (5281,'HEL','LPL','AMS',NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (5765,'BHX','BUD',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (6232,'ABZ','LSI',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (6982,'SVQ','GLA','MAD',NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (7120,'EDI','SVQ',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (7625,'BRS','LIS',NULL,NULL);
-INSERT INTO ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (9214,'EDI','DUB',NULL,NULL);
-
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (1279,'GLA','IBZ','BRU',NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (1329,'MMX','LHR',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (1902,'VNO','EDI','BER','LHR');
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (1924,'SAW','LHR',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (2716,'NAP','MAN',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (2847,'LPL','ARN','AMS',NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (3187,'ATH','EDI',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (3651,'MAN','FRA',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (3976,'STN','CHQ','VIE',NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (4153,'BFS','BCN',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (4551,'LGW','LAX','JFK','DEN');
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (4871,'STN','MUC',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (5172,'BHX','FCO',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (5281,'HEL','LPL','AMS',NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (5765,'BHX','BUD',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (6232,'ABZ','LSI',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (6982,'SVQ','GLA','MAD',NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (7120,'EDI','SVQ',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (7625,'BRS','LIS',NULL,NULL);
+INSERT INTO F_ROUTE(routeID,departFrom,arriveAt,midStopOne,midStopTwo) VALUES (9214,'EDI','DUB',NULL,NULL);
 
 
 --
